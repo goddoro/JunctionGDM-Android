@@ -1,6 +1,10 @@
 package com.goddoro.junction.application
 
 import android.app.Application
+import com.goddoro.junction.di.apiModule
+import com.goddoro.junction.di.networkModule
+import com.goddoro.junction.di.repositoryModule
+import com.goddoro.junction.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -27,8 +31,16 @@ class MainApplication : Application() {
         startKoin {
             androidContext(this@MainApplication)
             androidLogger(Level.INFO)
-            modules( listOf()
+            modules(
+                listOf(
+                    apiModule,
+                    repositoryModule,
+                    networkModule,
+                    viewModelModule
+                )
 
             )
+
+        }
     }
 }
