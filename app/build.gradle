@@ -1,11 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+    //multiDexEnabled true
+
+    /**
+     * 데이터 바인딩 사용합니다.
+     */
+    dataBinding.enabled = true
 
     defaultConfig {
         applicationId "com.goddoro.junction"
@@ -42,4 +50,67 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // kotlin koin
+    implementation "org.koin:koin-androidx-ext:2.0.1"
+    implementation "org.koin:koin-androidx-scope:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    implementation "org.koin:koin-test:2.0.1"
+
+    // rx java
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "com.jakewharton.rxbinding3:rxbinding:3.0.0"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.15"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.7.1"
+    implementation "com.squareup.retrofit2:converter-scalars:2.7.1"
+    implementation "com.squareup.retrofit2:retrofit:2.7.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
+
+    // okhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:4.3.1"
+    implementation "com.squareup.okhttp3:okhttp:4.3.1"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha01"
+
+    //databinding
+    implementation "androidx.databinding:databinding-adapters:3.6.3"
+    implementation "androidx.databinding:databinding-common:3.6.3"
+
+
+    def room_version = "2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+    implementation "androidx.room:room-ktx:" + room_version
+    implementation "androidx.room:room-runtime:" + room_version
+    implementation "androidx.room:room-rxjava2:" + room_version
+    implementation "androidx.room:room-testing:" + room_version
+
+    // WorkManager
+    def work_manager_version = "2.3.4"
+    implementation "androidx.work:work-runtime-ktx:2.3.4"
+    implementation "androidx.work:work-rxjava2:" + work_manager_version
+
+
+
+    //etc
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.preference:preference-ktx:1.1.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "com.google.android.material:material:1.2.0-alpha05"
+
+
+
+
+
 }
