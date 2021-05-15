@@ -17,10 +17,11 @@ class TestViewModel (
     private val testRepository: TestRepository
 ): ViewModel() {
 
-    val imageUri : Uri? = null
+    val isProcessing : MutableLiveData<Boolean> = MutableLiveData()
 
-    val onSuccess : MutableLiveData<Once<Unit>> = MutableLiveData()
     val errorInvoked  : MutableLiveData<Once<Throwable>> = MutableLiveData()
+
+    val result : MutableLiveData<String> = MutableLiveData()
 
 
     init {
@@ -29,16 +30,19 @@ class TestViewModel (
     }
 
 
-    fun analyzeImage() {
+    fun analyzeImage( imageUri : Uri ) {
+
+        isProcessing.value = true
 
         viewModelScope.launch {
 
-
             kotlin.runCatching {
-                testRepository.getMnistAnalysis(imageUri!!)
+                testRepository.getMnistAnalysis(imageUri)
             }.onSuccess {
-                onSuccess.value = Once(Unit)
+                isProcessing.value = false
+                result.value = it.success.toString()
             }.onFailure {
+                isProcessing.value = false
                 errorInvoked.value = Once(it)
             }
         }

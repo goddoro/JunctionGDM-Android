@@ -11,7 +11,7 @@ import com.goddoro.junction.network.model.Test
 interface TestRepository {
 
 
-    fun getMnistAnalysis(
+    suspend fun getMnistAnalysis(
         imageFile : Uri
     ) : Test
 }

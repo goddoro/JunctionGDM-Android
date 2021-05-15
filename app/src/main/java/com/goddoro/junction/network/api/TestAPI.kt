@@ -21,8 +21,7 @@ interface TestAPI {
     @POST("/mnist")
     @Multipart
     suspend fun getMnistAnalysis (
-        @Part imageFile: MultipartBody.Part,
-        @PartMap params: HashMap<String, RequestBody>
-    ) : Single<Test>
+        @Part imageFile: MultipartBody.Part
+    ) : Test
 }
 

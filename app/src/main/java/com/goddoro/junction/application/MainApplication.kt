@@ -1,10 +1,7 @@
 package com.goddoro.junction.application
 
 import android.app.Application
-import com.goddoro.junction.di.apiModule
-import com.goddoro.junction.di.networkModule
-import com.goddoro.junction.di.repositoryModule
-import com.goddoro.junction.di.viewModelModule
+import com.goddoro.junction.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -36,7 +33,8 @@ class MainApplication : Application() {
                     apiModule,
                     repositoryModule,
                     networkModule,
-                    viewModelModule
+                    viewModelModule,
+                    utilModule
                 )
 
             )

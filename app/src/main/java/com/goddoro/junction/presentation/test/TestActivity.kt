@@ -16,8 +16,11 @@ import androidx.camera.core.impl.utils.executor.CameraXExecutors
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.observe
 import com.goddoro.junction.R
 import com.goddoro.junction.databinding.ActivityTestBinding
+import com.goddoro.junction.extensions.debugE
+import com.goddoro.junction.extensions.observeOnce
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 import java.util.concurrent.ExecutorService
@@ -59,8 +62,21 @@ class TestActivity : AppCompatActivity() {
         mBinding.cameraCaptureButton.setOnClickListener { takePhoto() }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
+
+        observeViewModel()
     }
 
+    private fun observeViewModel() {
+
+
+        mViewModel.apply {
+
+            errorInvoked.observeOnce(this@TestActivity){
+                debugE(TAG,it.message)
+                mBinding.txtResult.text = "ㅋㅋ실패하셨네요"
+            }
+        }
+    }
     private fun takePhoto() {
         Log.d(TAG,imageCapture.toString())
         // Get a stable reference of the modifiable image capture use case
@@ -88,6 +104,7 @@ class TestActivity : AppCompatActivity() {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "Photo capture succeeded: $savedUri"
                     Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                    mViewModel.analyzeImage(savedUri)
                     Log.d(TAG, msg)
                 }
             })
