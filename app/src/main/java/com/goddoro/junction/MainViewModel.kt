@@ -1,6 +1,8 @@
 package com.goddoro.junction
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.goddoro.junction.extensions.Once
 
 
 /**
@@ -9,7 +11,17 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
+    val clickTestActivity : MutableLiveData<Once<Unit>> = MutableLiveData()
 
+
+
+
+
+
+    fun onClickTestActivity() {
+
+        clickTestActivity.value = Once(Unit)
+    }
 
 
 }

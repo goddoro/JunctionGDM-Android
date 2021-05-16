@@ -21,7 +21,7 @@ private const val CONNECT_TIMEOUT = 60L
 private const val WRITE_TIMEOUT = 15L
 private const val READ_TIMEOUT = 15L
 
-val baseUrl = "http://115.85.181.58:18050"
+val baseUrl = "http://61.78.121.177:18050"
 
 val networkModule = module {
 

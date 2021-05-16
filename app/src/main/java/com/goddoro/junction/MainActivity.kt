@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.goddoro.junction.databinding.ActivityMainBinding
+import com.goddoro.junction.extensions.observeOnce
+import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.test.TestActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +24,19 @@ class MainActivity : AppCompatActivity() {
         mBinding.vm = mViewModel
 
         setContentView(mBinding.root)
+
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+
+        mViewModel.apply {
+
+            clickTestActivity.observeOnce(this@MainActivity){
+
+                startActivity(TestActivity::class)
+            }
+        }
     }
 
 }

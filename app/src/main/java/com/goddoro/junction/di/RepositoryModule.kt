@@ -12,6 +12,6 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    single { TestRepositoryImpl( get()) } bind TestRepository::class
+    single { TestRepositoryImpl( get(),get()) } bind TestRepository::class
 
 }
