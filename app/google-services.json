@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "794603625747",
+    "project_id": "junctionx2021",
+    "storage_bucket": "junctionx2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794603625747:android:7c6ba934863560ee3ccee6",
+        "android_client_info": {
+          "package_name": "com.goddoro.junction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794603625747-gcaica4sn2a171r9f8kef0ioom9v6ce2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTQ_vMpEyhFc9Roo4RE8gi8YjNEiQmL1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794603625747-gcaica4sn2a171r9f8kef0ioom9v6ce2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

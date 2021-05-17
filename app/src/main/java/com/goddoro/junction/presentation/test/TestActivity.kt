@@ -28,7 +28,7 @@ import java.util.concurrent.Executors
 
 class TestActivity : AppCompatActivity() {
 
-    private var currentCameraSelector : CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    private var currentCameraSelector : CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
 
     private lateinit var imageCapture: ImageCapture
 
