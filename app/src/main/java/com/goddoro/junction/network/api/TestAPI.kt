@@ -23,5 +23,6 @@ interface TestAPI {
     suspend fun getMnistAnalysis (
         @Part imageFile: MultipartBody.Part
     ) : Test
+
 }
 

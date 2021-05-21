@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import com.goddoro.junction.databinding.ActivityMainBinding
 import com.goddoro.junction.extensions.observeOnce
 import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.feed.FeedFragment
+import com.goddoro.junction.presentation.map.MapFragment
 import com.goddoro.junction.presentation.test.TestActivity
 import com.goddoro.junction.util.AppPreference
+import com.goddoro.junction.util.MainMenu
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.koin.android.ext.android.inject
@@ -16,6 +20,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val mFragment1 : FeedFragment = FeedFragment.newInstance()
+    private val mFragment2 : MapFragment = MapFragment.newInstance()
+    private var mActiveFragment: Fragment = mFragment1
 
     private val TAG = MainActivity::class.java.simpleName
 
@@ -40,6 +48,14 @@ class MainActivity : AppCompatActivity() {
         appPreference.isLogin = true
 
         Log.d(TAG, "WOW")
+
+
+        initFirebaseSetting()
+        initFragments()
+        setupBottomNavigationView()
+    }
+
+    private fun initFirebaseSetting() {
 
         if ( appPreference.isLogin  ) {
 
@@ -72,6 +88,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
+    private fun initFragments() {
+        val fm = supportFragmentManager
+
+        fm.beginTransaction().add(R.id.mMainContainer, mFragment2, "2").hide(mFragment2).commit()
+        fm.beginTransaction().add(R.id.mMainContainer, mFragment1, "1").commit()
+    }
+
+    private fun changeFragment(menu: MainMenu) {
+
+        val willShow = when (menu.idx) {
+            0 -> mFragment1
+            1 -> mFragment2
+            else -> throw IllegalArgumentException()
+        }
+        supportFragmentManager.beginTransaction()
+            .hide(mFragment1)
+            .hide(mFragment2)
+
+            .show(willShow).commit()
+        mActiveFragment = willShow
+    }
+
     private fun observeViewModel() {
 
         mViewModel.apply {
@@ -83,4 +123,44 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupBottomNavigationView() {
+
+        mBinding.mBottomNavigationView.setOnNavigationItemSelectedListener {
+
+            val selectedMenu = MainMenu.parseIdToMainMenu(it.itemId)
+
+
+            when (selectedMenu) {
+                MainMenu.FEED -> {
+                    changeFragment(selectedMenu)
+                }
+                MainMenu.EXPLORE -> {
+                    changeFragment(selectedMenu)
+                }
+
+            }
+            true
+        }
+
+        mBinding.mBottomNavigationView.setOnNavigationItemReselectedListener {
+
+            // 이미 선택되어있는 탭을 다시 선택하면 목록 제일 위로 이동시킨다.
+            // Broadcast 날림
+            when (MainMenu.parseIdToMainMenu(it.itemId)) {
+
+                MainMenu.FEED -> {
+                    //Broadcast.videoListGoTop.onNext(Unit)
+                }
+                MainMenu.EXPLORE -> {
+                    if (supportFragmentManager.backStackEntryCount > 0 ) {
+                        supportFragmentManager.popBackStack()
+                    } else {
+                        //Broadcast.exploreListGoTop.onNext(Unit)
+                    }
+                }
+
+            }
+        }
+
+    }
 }
