@@ -1,9 +1,12 @@
 package com.goddoro.junction.di
 
 import com.goddoro.junction.MainViewModel
+import com.goddoro.junction.presentation.apply.ApplyViewModel
 import com.goddoro.junction.presentation.feed.FeedViewModel
 import com.goddoro.junction.presentation.feed.detail.DriverDetailViewModel
 import com.goddoro.junction.presentation.map.MapViewModel
+import com.goddoro.junction.presentation.profile.ProfileViewModel
+import com.goddoro.junction.presentation.review.ReviewViewModel
 import com.goddoro.junction.presentation.test.TestViewModel
 import com.goddoro.junction.util.component.BottomSheetViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,5 +25,8 @@ val viewModelModule = module {
     viewModel { MapViewModel()}
     viewModel { DriverDetailViewModel() }
     viewModel { BottomSheetViewModel() }
+    viewModel { ProfileViewModel()}
+    viewModel { ApplyViewModel()}
+    viewModel { ReviewViewModel() }
 
 }

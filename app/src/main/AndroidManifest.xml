@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.feed.detail.DriverDetailActivity"></activity>
+        <activity android:name=".presentation.review.ReviewActivity"></activity>
+        <activity android:name=".presentation.feed.detail.DriverDetailActivity" />
         <activity android:name=".presentation.test.TestActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -35,7 +36,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="kakao{2dd5d024f09a4cbe2b0dd13abc1222a2}" android:host="kakaolink" />
+                <data
+                    android:host="kakaolink"
+                    android:scheme="kakao{2dd5d024f09a4cbe2b0dd13abc1222a2}" />
             </intent-filter>
         </activity>
 
@@ -50,9 +53,9 @@
         <meta-data
             android:name="com.naver.maps.map.ezif2jtkbt"
             android:value="ezif2jtkbt" />
-
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
-
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
     </application>
 
 </manifest>
