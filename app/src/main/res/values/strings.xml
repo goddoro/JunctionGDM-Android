@@ -4,4 +4,8 @@
     <string name="fcm_channel_id" translatable="false">JUNCTION_CHANNEL_ID</string>
     <string name="fcm_channel_name" translatable="false">JUNCTION 알림</string>
     <string name="fcm_channel_desc" translatable="false">JUNCTION 알림</string>
+
+    <string name="mapbox_access_token">pk.eyJ1IjoiZ29kZG9ybyIsImEiOiJja295bzZiOW8wMWVlMnZvMjVxcDF4M2NlIn0.-qbvlmX_ZEzZZCtbAJ5NUQ</string>
+    <string name="kakao_app_key">2dd5d024f09a4cbe2b0dd13abc1222a2</string>
+
 </resources>

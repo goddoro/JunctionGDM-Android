@@ -3,6 +3,7 @@ package com.goddoro.junction.application
 import android.app.Application
 import com.goddoro.junction.CommonConst.NAVER_CLIENT_ID
 import com.goddoro.junction.di.*
+import com.kakao.sdk.common.KakaoSdk
 import com.naver.maps.map.NaverMapSdk
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -24,6 +25,8 @@ class MainApplication : Application() {
 
         NaverMapSdk.getInstance(this).client =
                 NaverMapSdk.NaverCloudPlatformClient(NAVER_CLIENT_ID)
+
+        KakaoSdk.init(this, "2dd5d024f09a4cbe2b0dd13abc1222a2")
     }
 
 

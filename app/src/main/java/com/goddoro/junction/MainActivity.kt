@@ -1,9 +1,13 @@
 package com.goddoro.junction
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
+import android.net.Uri.encode
 import android.os.Bundle
+import android.util.Base64.*
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.goddoro.junction.databinding.ActivityMainBinding
 import com.goddoro.junction.extensions.observeOnce
@@ -15,9 +19,23 @@ import com.goddoro.junction.util.AppPreference
 import com.goddoro.junction.util.MainMenu
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import net.bytebuddy.implementation.bytecode.assign.Assigner.DEFAULT
+import okhttp3.internal.http2.Huffman.encode
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.net.URLEncoder.encode
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+import java.security.spec.PSSParameterSpec.DEFAULT
 import java.util.*
+import android.os.Build
+import android.util.Base64
+import com.kakao.sdk.common.util.KakaoCustomTabsClient
+import com.kakao.sdk.navi.NaviClient
+import com.kakao.sdk.navi.model.CoordType
+import com.kakao.sdk.navi.model.Location
+import com.kakao.sdk.navi.model.NaviOption
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,12 +65,11 @@ class MainActivity : AppCompatActivity() {
 
         appPreference.isLogin = true
 
-        Log.d(TAG, "WOW")
-
-
         initFirebaseSetting()
         initFragments()
         setupBottomNavigationView()
+
+
     }
 
     private fun initFirebaseSetting() {

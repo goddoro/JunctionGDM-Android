@@ -130,10 +130,15 @@ dependencies {
 
     implementation 'com.naver.maps:map-sdk:3.11.0' // naver map
 
+    implementation "com.kakao.sdk:v2-navi:2.5.0" // 카카오내비
+
+
+
 
 }
 
 dependencies {
+    implementation files('libs/com.skt.Tmap_1.67.jar')
     def camerax_version = "1.1.0-alpha04"
 // CameraX core library using camera2 implementation
     implementation "androidx.camera:camera-camera2:$camerax_version"

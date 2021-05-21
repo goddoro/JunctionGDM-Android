@@ -5,6 +5,7 @@ import com.goddoro.junction.presentation.feed.FeedViewModel
 import com.goddoro.junction.presentation.feed.detail.DriverDetailViewModel
 import com.goddoro.junction.presentation.map.MapViewModel
 import com.goddoro.junction.presentation.test.TestViewModel
+import com.goddoro.junction.util.component.BottomSheetViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -20,5 +21,6 @@ val viewModelModule = module {
     viewModel { FeedViewModel(get())}
     viewModel { MapViewModel()}
     viewModel { DriverDetailViewModel() }
+    viewModel { BottomSheetViewModel() }
 
 }

@@ -1,6 +1,7 @@
 package com.goddoro.junction.di
 
 import com.goddoro.junction.util.AppPreference
+import com.goddoro.junction.util.ScreenUtil
 import com.goddoro.module.util.MultiPartUtil
 import com.goddoro.module.util.UriUtil
 import org.koin.dsl.module
@@ -16,4 +17,5 @@ val utilModule = module{
     single { UriUtil(get()) }
     single { MultiPartUtil(get()) }
     single { AppPreference(get())}
+    single { ScreenUtil(get()) }
 }
