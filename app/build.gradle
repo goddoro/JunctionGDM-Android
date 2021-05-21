@@ -114,17 +114,6 @@ dependencies {
 
 
 
-    dependencies {
-        def camerax_version = "1.1.0-alpha04"
-// CameraX core library using camera2 implementation
-        implementation "androidx.camera:camera-camera2:$camerax_version"
-// CameraX Lifecycle Library
-        implementation "androidx.camera:camera-lifecycle:$camerax_version"
-// CameraX View class
-        implementation "androidx.camera:camera-view:1.0.0-alpha24"
-
-    }
-
 
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     // fire base
@@ -139,5 +128,18 @@ dependencies {
 
     implementation "com.google.android.gms:play-services-auth:18.0.0"
 
+    implementation 'com.naver.maps:map-sdk:3.11.0' // naver map
+
+
+}
+
+dependencies {
+    def camerax_version = "1.1.0-alpha04"
+// CameraX core library using camera2 implementation
+    implementation "androidx.camera:camera-camera2:$camerax_version"
+// CameraX Lifecycle Library
+    implementation "androidx.camera:camera-lifecycle:$camerax_version"
+// CameraX View class
+    implementation "androidx.camera:camera-view:1.0.0-alpha24"
 
 }

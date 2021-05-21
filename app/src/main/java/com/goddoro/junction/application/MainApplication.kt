@@ -1,7 +1,9 @@
 package com.goddoro.junction.application
 
 import android.app.Application
+import com.goddoro.junction.CommonConst.NAVER_CLIENT_ID
 import com.goddoro.junction.di.*
+import com.naver.maps.map.NaverMapSdk
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -19,6 +21,9 @@ class MainApplication : Application() {
         super.onCreate()
 
         inject()
+
+        NaverMapSdk.getInstance(this).client =
+                NaverMapSdk.NaverCloudPlatformClient(NAVER_CLIENT_ID)
     }
 
 

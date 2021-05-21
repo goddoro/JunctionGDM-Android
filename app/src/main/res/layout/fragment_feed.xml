@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.goddoro.junction.presentation.feed.FeedViewModel" />
+
+    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -8,13 +17,15 @@
         android:layout_height="match_parent">
 
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/black"
-            android:text="FEED"
-            android:gravity="center"
-            android:textSize="100dp"/>
+            tools:itemCount="3"
+            app:recyclerview_driver_list="@{vm.drivers}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_driver"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
