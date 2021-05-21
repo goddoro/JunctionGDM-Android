@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MainPageToolbar">
+        <attr name="toolbar_title" format="string" />
+        <attr name="toolbar_left_icon" format="reference" />
+        <attr name="toolbar_right_icon" format="reference" />
+        <attr name="toolbar_right_2_icon" format="reference"/>
+        <attr name="toolbar_right_text" format="string" />
+        <attr name="toolbar_right_text_enabled" format="boolean"/>
+        <attr name="toolbar_drawable_start" format="reference"/>
+        <attr name="toolbar_right_text_visibility" format ="boolean"/>
+        <attr name="toolbar_right_text_clickable" format ="boolean"/>
+    </declare-styleable>
+
+</resources>
