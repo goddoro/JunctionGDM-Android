@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.observe
 import com.goddoro.junction.R
 import com.goddoro.junction.databinding.ActivityTestBinding
-import com.goddoro.junction.extensions.debugE
 import com.goddoro.junction.extensions.observeOnce
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
@@ -72,7 +71,7 @@ class TestActivity : AppCompatActivity() {
         mViewModel.apply {
 
             errorInvoked.observeOnce(this@TestActivity){
-                debugE(TAG,it.message)
+                Log.d(TAG,it.message.toString())
                 mBinding.txtResult.text = "ㅋㅋ실패하셨네요"
             }
         }

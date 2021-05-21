@@ -18,7 +18,6 @@ import com.goddoro.junction.CommonConst.JUNCTION_FCM_TOKEN
 import com.goddoro.junction.CommonConst.UPDATE_FCM_TOKEN
 import com.goddoro.junction.MainActivity
 import com.goddoro.junction.R
-import com.goddoro.junction.extensions.debugE
 import com.goddoro.junction.util.AppPreference
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -139,7 +138,7 @@ class FirebaseMsgService : FirebaseMessagingService() {
             try {
 
                 // 알림 목록 업데이트
-                debugE(TAG, "Push 보냈어!")
+                Log.d(TAG, "Push 보냈어!")
 
             } catch (e: Exception) {
                 Log.d(TAG, e.message ?: "")

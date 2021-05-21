@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import com.goddoro.junction.databinding.ActivityMainBinding
-import com.goddoro.junction.extensions.debugE
 import com.goddoro.junction.extensions.observeOnce
 import com.goddoro.junction.extensions.startActivity
 import com.goddoro.junction.presentation.test.TestActivity
@@ -38,6 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         observeViewModel()
 
+        appPreference.isLogin = true
+
+        Log.d(TAG, "WOW")
+
         if ( appPreference.isLogin  ) {
 
             FirebaseMessaging.getInstance().token
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Get new Instance ID token
                     val newFCMToken = task.result
+                    Log.d(TAG, newFCMToken)
                     val savedFCMToken = appPreference.curFCMToken
                     if (newFCMToken != null) {
                         var uuid = appPreference.curDeviceUUID
@@ -59,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                         if (savedFCMToken.isNotEmpty() && newFCMToken != savedFCMToken) {
                             // fcm token이 변경되었으면 preference update하고 서버도 update한다.
                             appPreference.curFCMToken = newFCMToken
-                            debugE(TAG, "Main IN devide")
+                            Log.d(TAG, "Main IN devide")
                         } else {
                             appPreference.curFCMToken = newFCMToken
                         }
