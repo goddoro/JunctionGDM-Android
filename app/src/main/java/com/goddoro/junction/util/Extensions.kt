@@ -116,7 +116,7 @@ fun ImageView.loadUrlAsync(url: String?, placeholder: Drawable? = null) {
     if (url == null) {
         Glide.with(this).load(placeholder).into(this)
     } else {
-        Glide.with(this).load(url)
+        Glide.with(this).load("http://$url")
             .apply {
                 if (placeholder != null)
                     (placeholder)

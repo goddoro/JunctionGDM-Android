@@ -2,6 +2,7 @@ package com.goddoro.junction.presentation.feed
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.goddoro.junction.extensions.Once
 import com.goddoro.junction.extensions.addSchedulers
 import com.goddoro.junction.extensions.disposedBy
 import com.goddoro.junction.network.model.Driver
@@ -19,19 +20,18 @@ class FeedViewModel (
 
     val drivers : MutableLiveData<List<Driver>> = MutableLiveData()
 
+    val speechText : MutableLiveData<String> = MutableLiveData()
+
 
     val compositeDisposable = CompositeDisposable()
+
+    val clickSpeech : MutableLiveData<Once<Unit>> = MutableLiveData()
+    val errorInvoked : MutableLiveData<Once<Throwable>> = MutableLiveData()
 
 
     init {
 
-        //listDrivers()
-
-        drivers.value = listOf(
-            Driver(0,0),
-            Driver(1,0),
-            Driver(2,0)
-        )
+        listDrivers()
     }
 
     fun listDrivers() {
@@ -39,10 +39,14 @@ class FeedViewModel (
         driverRepository.listDrivers()
             .addSchedulers()
             .subscribe({
-
+                drivers.value = it
             },{
-
+                errorInvoked.value = Once(it)
             }).disposedBy(compositeDisposable)
+    }
+
+    fun onClickSpeech() {
+        clickSpeech.value = Once(Unit)
     }
 
 

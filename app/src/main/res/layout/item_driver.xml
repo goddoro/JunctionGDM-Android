@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -15,8 +16,34 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:id="@+id/img_profile"
+            android:padding="1dp"
+            android:background="@color/white"
+            android:src="@drawable/dongho"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            srcUrl="@{item.profileImgUrl}"/>
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{item.name}"
+            app:layout_constraintTop_toTopOf="@+id/img_profile"
+            tools:text="이동호"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"/>
+
+        <TextView
+            android:id="@+id/txt_car_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.carType}"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,8 @@
 package com.goddoro.junction.di
 
+import android.util.Log
+import com.goddoro.junction.CommonConst.NAVER_CLIENT_ID
+import com.goddoro.junction.CommonConst.NAVER_SECRET_ID
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -21,7 +24,9 @@ private const val CONNECT_TIMEOUT = 60L
 private const val WRITE_TIMEOUT = 15L
 private const val READ_TIMEOUT = 15L
 
-val baseUrl = "http://61.78.121.177:18050"
+val baseUrl = "http://192.168.0.184:18050"
+
+val naverUrl = "https://naveropenapi.apigw.ntruss.com/"
 
 val networkModule = module {
 
@@ -61,6 +66,46 @@ val networkModule = module {
 
             }.build())
         }
+    }
+
+    single( named("NAVER_INTERCEPTOR") ){
+        Interceptor { chain ->
+
+            Log.d(
+                "NAVER Network Module",
+                "========== [ Network Module : Header Intercepter ] ==========="
+            )
+            chain.proceed(chain.request().newBuilder().apply {
+                header("X-NCP-APIGW-API-KEY", NAVER_SECRET_ID)
+                addHeader("X-NCP-APIGW-API-KEY-ID", NAVER_CLIENT_ID)
+            }.build())
+        }
+
+    }
+
+
+    single ( named("NAVER_OKHTTP") ){
+        OkHttpClient.Builder().apply {
+            connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+            readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+            writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+            retryOnConnectionFailure(true)
+            addInterceptor(get<Interceptor>(named("NAVER_INTERCEPTOR")))
+            addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+        }.build()
+
+    }
+
+
+
+    single(named("NAVER")) {
+        Retrofit.Builder()
+            .baseUrl(naverUrl)
+            .addConverterFactory(GsonConverterFactory.create(get()))
+            .client(get(named("NAVER_OKHTTP")))
+            .build()
     }
 
 }

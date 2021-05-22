@@ -31,7 +31,7 @@ class IntroActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
         initView()
-        appPreference.isLogin = false
+        appPreference.isLogin = true
     }
 
     private fun initView() {
@@ -39,7 +39,7 @@ class IntroActivity : AppCompatActivity() {
         //mBinding.animTaxi.playAnimation()
 
 
-        rxSingleTimer(2000){
+        rxSingleTimer(1){
 
             if ( appPreference.isLogin ) startActivity(MainActivity::class)
             else {

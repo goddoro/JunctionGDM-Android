@@ -3,6 +3,7 @@ package com.goddoro.junction.network.repositoryImpl
 import com.goddoro.junction.network.api.DriverAPI
 import com.goddoro.junction.network.api.unWrapData
 import com.goddoro.junction.network.model.Driver
+import com.goddoro.junction.network.model.DriverLocation
 import com.goddoro.junction.network.repository.DriverRepository
 import io.reactivex.Single
 
@@ -18,5 +19,10 @@ class DriverRepositoryImpl ( val api : DriverAPI) : DriverRepository {
 
 
         return api.listDrivers().unWrapData().map{it.drivers}
+    }
+
+    override fun getDriverLocation( id : Int ): Single<DriverLocation> {
+
+        return api.getDriverLocation(id ).unWrapData().map{it.driverLocation}
     }
 }

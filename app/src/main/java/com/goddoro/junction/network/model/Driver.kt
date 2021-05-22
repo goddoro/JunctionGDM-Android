@@ -17,6 +17,8 @@ data class Driver(
     @SerializedName("rating")
     val score : Float,
 
+    @SerializedName("name")
+    val name : String,
     @SerializedName("car_type")
     val carType : String,
 

@@ -23,7 +23,7 @@ val viewModelModule = module {
     viewModel { MainViewModel() }
     viewModel { TestViewModel(get()) }
     viewModel { FeedViewModel(get())}
-    viewModel { MapViewModel()}
+    viewModel { MapViewModel(get())}
     viewModel { DriverDetailViewModel() }
     viewModel { BottomSheetViewModel() }
     viewModel { ProfileViewModel()}
