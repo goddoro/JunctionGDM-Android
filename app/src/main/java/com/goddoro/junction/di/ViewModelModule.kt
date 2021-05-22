@@ -4,6 +4,7 @@ import com.goddoro.junction.MainViewModel
 import com.goddoro.junction.presentation.apply.ApplyViewModel
 import com.goddoro.junction.presentation.feed.FeedViewModel
 import com.goddoro.junction.presentation.feed.detail.DriverDetailViewModel
+import com.goddoro.junction.presentation.indriving.InDrivingViewModel
 import com.goddoro.junction.presentation.intro.IntroViewModel
 import com.goddoro.junction.presentation.map.MapViewModel
 import com.goddoro.junction.presentation.profile.ProfileViewModel
@@ -30,5 +31,6 @@ val viewModelModule = module {
     viewModel { ApplyViewModel()}
     viewModel { ReviewViewModel() }
     viewModel { IntroViewModel() }
+    viewModel { InDrivingViewModel()}
 
 }

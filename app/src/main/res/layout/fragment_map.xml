@@ -16,11 +16,14 @@
         android:layout_height="match_parent">
 
 
+
         <com.naver.maps.map.MapView
             android:id="@+id/mapView"
             app:navermap_locationButtonEnabled="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.5"/>
 
         <ImageView
             android:id="@+id/img_cur_location"
@@ -28,7 +31,7 @@
             android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/mapView"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/ic_android"/>
 
@@ -44,9 +47,20 @@
             android:gravity="center"
             tools:text="서울역 "
             android:text="@{vm.currentAddress}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mapView"
             android:layout_marginBottom="20dp"/>
 
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_mic"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_mic"
+            
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

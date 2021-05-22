@@ -103,7 +103,14 @@ class FeedFragment : Fragment() {
     private fun initView(){
 
 
-        BottomSheetDialog.show(requireActivity().supportFragmentManager)
+        //BottomSheetDialog.show(requireActivity().supportFragmentManager)
+
+        mBinding.txtType.apply {
+
+            text = ""
+            setCharacterDelay(100)
+            animateText("My name is goddoro")
+        }
 
 
     }

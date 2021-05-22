@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/white"
+        android:background="@color/background_1"
         android:elevation="8dp">
 
         <androidx.constraintlayout.widget.Barrier
@@ -35,8 +35,8 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

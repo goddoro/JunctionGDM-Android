@@ -43,6 +43,13 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_text"
             android:onClick="@{() ->vm.onClickSpeech()}"/>
 
+        <com.goddoro.junction.util.component.TypeWriterVIew
+            android:id="@+id/txt_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_speech" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

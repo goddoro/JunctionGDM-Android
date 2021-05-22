@@ -30,6 +30,8 @@ import java.security.spec.PSSParameterSpec.DEFAULT
 import java.util.*
 import android.os.Build
 import android.util.Base64
+import com.goddoro.junction.presentation.description.DescriptionActivity
+import com.goddoro.junction.presentation.indriving.InDrivingActivity
 import com.kakao.sdk.common.util.KakaoCustomTabsClient
 import com.kakao.sdk.navi.NaviClient
 import com.kakao.sdk.navi.model.CoordType
@@ -39,8 +41,8 @@ import com.kakao.sdk.navi.model.NaviOption
 
 class MainActivity : AppCompatActivity() {
 
-    private val mFragment1 : FeedFragment = FeedFragment.newInstance()
-    private val mFragment2 : MapFragment = MapFragment.newInstance()
+    private val mFragment1 : MapFragment = MapFragment.newInstance()
+    private val mFragment2 : FeedFragment = FeedFragment.newInstance()
     private var mActiveFragment: Fragment = mFragment1
 
     private val TAG = MainActivity::class.java.simpleName
@@ -68,6 +70,8 @@ class MainActivity : AppCompatActivity() {
         initFirebaseSetting()
         initFragments()
         setupBottomNavigationView()
+
+        //startActivity(DescriptionActivity::class)
 
 
     }
