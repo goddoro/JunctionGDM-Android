@@ -10,4 +10,8 @@
 
     <string name="say_d_handy">Say <font fgcolor="#5600e8">D:Handy!</font>\nTell your destination</string>
 
+    <string name="looking_for_taxi">Now <font fgcolor="#5600e8">D:Handy</font> is\nlooking for a taxi</string>
+    <string name="find_reserved_taxi">Find a reserved taxi\nusing <font fgcolor="#5600e8">D:Handy</font></string>
+
+
 </resources>

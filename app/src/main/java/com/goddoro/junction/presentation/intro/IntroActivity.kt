@@ -38,7 +38,7 @@ class IntroActivity : AppCompatActivity() {
 
         //mBinding.animTaxi.playAnimation()
 
-        //startActivity(MainActivity::class)
+        startActivity(MainActivity::class)
 
     }
 }

@@ -2,6 +2,7 @@ package com.goddoro.junction.presentation.indriving
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
@@ -9,6 +10,7 @@ import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.goddoro.junction.R
 import com.goddoro.junction.databinding.ItemDriverBinding
 import com.goddoro.junction.databinding.ItemDrivingTextBinding
 import com.goddoro.junction.network.model.InDrivingText
@@ -73,23 +75,31 @@ class InDrivingTextAdapter ( val context : Context): RecyclerView.Adapter<InDriv
             binding.setVariable(BR.item, item)
             binding.executePendingBindings()
 
-            binding.txtDescription.apply {
+            if ( layoutPosition == 0 ) {
+                binding.imgIcon.setImageResource(item.onIcon)
+                binding.txtDescription.apply {
 
-                text = ""
-                setCharacterDelay(100)
-                animateText(item.description)
-
-
-
-            }
+                    text = ""
+                    setCharacterDelay(100)
+                    animateText(item.description)
 
 
-            textToSpeech = TextToSpeech(context) {
-                if ( it != TextToSpeech.ERROR) {
-                    textToSpeech.language =(Locale.KOREAN)
 
                 }
-                textToSpeech.speak(item.description,TextToSpeech.QUEUE_FLUSH,null,null)
+
+
+                textToSpeech = TextToSpeech(context) {
+                    if ( it != TextToSpeech.ERROR) {
+                        textToSpeech.language =(Locale.ENGLISH)
+
+                    }
+                    textToSpeech.speak(item.description,TextToSpeech.QUEUE_FLUSH,null,null)
+
+                }
+            }
+            else if ( layoutPosition != 0 ){
+                binding.imgIcon.setImageResource(item.offIcon)
+                binding.txtDescription.setTextColor(context.resources.getColor(R.color.gray))
 
             }
 

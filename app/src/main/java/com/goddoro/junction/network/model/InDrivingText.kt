@@ -1,5 +1,7 @@
 package com.goddoro.junction.network.model
 
+import androidx.databinding.ObservableInt
+
 data class InDrivingText (
 
     val id : Int,
@@ -7,8 +9,12 @@ data class InDrivingText (
 
     val description : String,
 
-    val icon : Int,
+    val onIcon : Int,
 
-    val background : Int
+    val offIcon : Int,
+
+    val position : ObservableInt,
+
+    val background : Int? = 0
 
 )

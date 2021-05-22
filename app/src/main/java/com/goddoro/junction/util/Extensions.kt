@@ -8,6 +8,7 @@ import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -155,6 +156,12 @@ fun ImageView.setImagePathGlide (path : String? ) {
 fun TextView.setDrawableStart(binding: Boolean, src: Drawable?) {
     val drawableSrc = if (binding) src else null
     this.setCompoundDrawablesWithIntrinsicBounds( drawableSrc, null, null, null)
+}
+
+@BindingAdapter("imageResource")
+fun ImageView.setImageResource( @DrawableRes res : Int? ) {
+    this.setImageResource(res)
+
 }
 
 //@BindingAdapter("blurred")

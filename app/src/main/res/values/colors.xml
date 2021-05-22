@@ -12,4 +12,6 @@
     <color name="background_1">#ededed</color>
 
     <color name="main_color">#5600e8</color>
+    <color name="gray">#99000000</color>
+    <color name="colorRed">#C90000</color>
 </resources>

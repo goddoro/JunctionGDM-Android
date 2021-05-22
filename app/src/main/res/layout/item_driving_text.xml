@@ -13,29 +13,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@drawable/cardview_no_border"
+        android:background="@{item.position == 0 &amp;&amp; item.background != 0 ? @drawable/cardview_red_background : @drawable/cardview_no_border}"
         android:layout_margin="15dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/img_icon"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:src="@drawable/dongho"
+            android:background="@{item.position == 0 &amp;&amp; item.background != 0 ? @color/colorRed : @color/white}"
+            imageResource="@{item.position == 0 ? item.onIcon : item.offIcon}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/txt_meter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/img_icon"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             tools:text="69m"
             android:text="@{item.meter}"
+            android:textColor="@{item.position == 0 ? @color/black : @color/gray}"
             app:layout_constraintBottom_toTopOf="@+id/txt_description"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -48,6 +50,7 @@
             tools:text="Turn left toward 1st Street "
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
+            android:textColor="@{item.position == 0 ? @color/black : @color/gray}"
             app:layout_constraintStart_toStartOf="@+id/txt_meter"
             app:layout_constraintTop_toBottomOf="@+id/txt_meter"
             app:layout_constraintBottom_toBottomOf="@+id/img_icon"/>

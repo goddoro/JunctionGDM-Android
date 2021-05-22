@@ -1,5 +1,7 @@
 package com.goddoro.junction.presentation.indriving
 
+import android.util.Log
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.goddoro.junction.R
@@ -12,27 +14,33 @@ class InDrivingViewModel : ViewModel() {
 
     var textList : List<InDrivingText> = listOf()
 
+
+    val second: List<Int> = listOf(7, 7, 7, 10, 9, 8,3)
+
     var position = 0
+
+    val curTime : MutableLiveData<Int> = MutableLiveData(-1)
+
+    val isRed : MutableLiveData<Boolean> = MutableLiveData()
+
+
 
     init {
 
         textList = listOf(
-            InDrivingText(0,"69m","1차선으로 차선 변경하겠습니다", R.drawable.ic_android, R.color.white),
-            InDrivingText(1,"69m","현재 일산방향 강변북로에 40분가량 정체가 있습니다", R.drawable.ic_android, R.color.white),
-            InDrivingText(2,"69m","주황불을 통과하기 위해 시속 18km가 상승하였습니다", R.drawable.ic_android, R.color.white)
+            InDrivingText(0,"100m","Go Straight for 100m from Jongno 1-gil", R.drawable.ic_straight_on, R.drawable.ic_straight_off, ObservableInt(0)),
+            InDrivingText(1,"Lane Change","Move from lane 2 to lane 1 for a left turn", R.drawable.ic_lane_change_on, R.drawable.ic_lane_change_off, ObservableInt(0)),
+            InDrivingText(2,"Caution","Prepare for a sudden stop in 2 seconds", R.drawable.ic_caution_on, R.drawable.ic_caution_off,ObservableInt(0), R.color.colorRed),
+            InDrivingText(3,"Delay","Arrival time is delayed by 10 minutes due to a collision",R.drawable.ic_delay_on,R.drawable.ic_delay_off,
+                ObservableInt(0)
+            ),
+            InDrivingText(4,"Arrived","The taxi has arrived at the destination",R.drawable.ic_arrived_on,R.drawable.ic_arrived_off,ObservableInt(0)),
+            InDrivingText(5,"Wait","The car is approaching. Get off after 30 seconds", R.drawable.ic_wait_on,R.drawable.ic_wait_on,ObservableInt(0),R.color.colorRed)
         )
 
-        onAddText()
-    }
-
-    private fun onAddText() {
-
-        rxRepeatTimer(3000){
-            if ( position < textList.size) {
-                inDrivingTextList.value =  listOf(textList[position]) + (inDrivingTextList.value ?: listOf())
-                position++
-            }
+        rxRepeatTimer(1000){
+            curTime.value = (curTime.value ?: 0) - 1
         }
-
     }
+
 }

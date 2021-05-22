@@ -30,6 +30,7 @@ import java.security.spec.PSSParameterSpec.DEFAULT
 import java.util.*
 import android.os.Build
 import android.util.Base64
+import com.goddoro.junction.presentation.beforeDriving.BeforeDrivingActivity
 import com.goddoro.junction.presentation.description.DescriptionActivity
 import com.goddoro.junction.presentation.indriving.InDrivingActivity
 import com.goddoro.junction.presentation.voice.VoiceActivity
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         initFragments()
         setupBottomNavigationView()
 
-        startActivity(VoiceActivity::class)
+        startActivity(InDrivingActivity::class)
 
 
     }

@@ -35,32 +35,32 @@ class MapViewModel(
 
 
     fun onCameraChange(latitude: Double, longitude: Double) {
-
-        Log.d(TAG, "Let'sgo change")
-
-        viewModelScope.launch {
-            kotlin.runCatching {
-                naverRepository.getAddressFromLocation(latitude, longitude)
-            }.onSuccess {
-
-                if (it.status.name == "ok") {
-                    currentAddress.value = it.results[0].let {
-                        it
-                        it.region.area1.name + " " + it.region.area2.name + " " + it.region.area3.name + " " + it.region.area4.name + " " + it.land.name + " " + it.land.number1
-
-                    }
-                    isValidAddress.value = true
-                } else {
-                    isValidAddress.value = false
-                    currentAddress.value = "좀 더 줌을 땡겨서 정확한 주소를 찾아주세요!"
-                }
-
-                Log.d("NAVER", currentAddress.value.toString())
-
-            }.onFailure {
-                errorInvoked.value = Once(it)
-            }
-        }
+//
+//        Log.d(TAG, "Let'sgo change")
+//
+//        viewModelScope.launch {
+//            kotlin.runCatching {
+//                naverRepository.getAddressFromLocation(latitude, longitude)
+//            }.onSuccess {
+//
+//                if (it.status.name == "ok") {
+//                    currentAddress.value = it.results[0].let {
+//                        it
+//                        it.region.area1.name + " " + it.region.area2.name + " " + it.region.area3.name + " " + it.region.area4.name + " " + it.land.name + " " + it.land.number1
+//
+//                    }
+//                    isValidAddress.value = true
+//                } else {
+//                    isValidAddress.value = false
+//                    currentAddress.value = "좀 더 줌을 땡겨서 정확한 주소를 찾아주세요!"
+//                }
+//
+//                Log.d("NAVER", currentAddress.value.toString())
+//
+//            }.onFailure {
+//                errorInvoked.value = Once(it)
+//            }
+//        }
     }
 
 

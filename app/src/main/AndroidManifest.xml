@@ -21,14 +21,18 @@
         android:name=".application.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="D:Handy"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.voice.VoiceActivity"></activity>
+        <activity android:name=".presentation.toTaxi.ToTaxiActivity"></activity>
+        <activity android:name=".presentation.beforeDriving.BeforeDrivingActivity" />
+        <activity android:name=".presentation.voice.VoiceActivity" />
         <activity android:name=".presentation.description.DescriptionActivity" />
-        <activity android:name=".presentation.indriving.InDrivingActivity" />
+        <activity
+            android:name=".presentation.indriving.InDrivingActivity"
+            android:theme="@style/Theme.Junction.Indriving"></activity>
         <activity android:name=".presentation.intro.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

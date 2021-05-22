@@ -10,6 +10,7 @@ import com.goddoro.junction.presentation.map.MapViewModel
 import com.goddoro.junction.presentation.profile.ProfileViewModel
 import com.goddoro.junction.presentation.review.ReviewViewModel
 import com.goddoro.junction.presentation.test.TestViewModel
+import com.goddoro.junction.presentation.toTaxi.ToTaxiViewModel
 import com.goddoro.junction.util.component.BottomSheetViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -32,5 +33,6 @@ val viewModelModule = module {
     viewModel { ReviewViewModel() }
     viewModel { IntroViewModel() }
     viewModel { InDrivingViewModel()}
+    viewModel { ToTaxiViewModel() }
 
 }

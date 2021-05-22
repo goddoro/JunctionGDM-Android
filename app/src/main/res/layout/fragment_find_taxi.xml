@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Step 2"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txt_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/find_reserved_taxi"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="100dp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/body_margin_start"
+            android:layout_marginEnd="@dimen/body_margin_start"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"/>
+
+
+        <TextView
+            android:id="@+id/btn_riding_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="30dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="Finfd taxi"
+            android:background="@drawable/cardview_purple_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:drawableEnd="@drawable/ic_arrow_forward"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
