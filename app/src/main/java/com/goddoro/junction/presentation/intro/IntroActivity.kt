@@ -38,20 +38,7 @@ class IntroActivity : AppCompatActivity() {
 
         //mBinding.animTaxi.playAnimation()
 
+        //startActivity(MainActivity::class)
 
-        rxSingleTimer(1){
-
-            if ( appPreference.isLogin ) startActivity(MainActivity::class)
-            else {
-                mBinding.animGettingStartedButton.visibility = VISIBLE
-                //mBinding.animGettingStartedButton.playAnimation()
-
-
-            }
-        }
-
-        mBinding.animGettingStartedButton.setOnDebounceClickListener {
-            startActivity(MainActivity::class)
-        }
     }
 }

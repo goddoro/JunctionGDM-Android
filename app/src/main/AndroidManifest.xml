@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.description.DescriptionActivity"></activity>
+        <activity android:name=".presentation.voice.VoiceActivity"></activity>
+        <activity android:name=".presentation.description.DescriptionActivity" />
         <activity android:name=".presentation.indriving.InDrivingActivity" />
         <activity android:name=".presentation.intro.IntroActivity">
             <intent-filter>

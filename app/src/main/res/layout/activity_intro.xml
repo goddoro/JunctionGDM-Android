@@ -14,6 +14,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:background="@color/main_color"
         android:layout_height="match_parent"
         tools:context=".presentation.intro.IntroActivity">
 
@@ -22,7 +23,6 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="100dp"
             app:lottie_autoPlay="true"
             app:lottie_repeatMode="restart"
             app:lottie_loop="true"
@@ -31,31 +31,27 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/txt_taxi"
-            android:layout_width="wrap_content"
+            android:id="@+id/txt_d_handy"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Slow Taxi"
-            android:textColor="@color/black"
+            android:text="D:\nHandy"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="80dp"
-            app:layout_constraintStart_toStartOf="@+id/anim_taxi"
-            app:layout_constraintEnd_toEndOf="@+id/anim_taxi"
+            android:layout_marginStart="20dp"
             app:layout_constraintTop_toBottomOf="@+id/anim_taxi"/>
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/anim_getting_started_button"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            app:lottie_repeatMode="restart"
-            android:visibility="gone"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/get_started_button"
-            app:layout_constraintStart_toStartOf="@+id/txt_taxi"
-            app:layout_constraintEnd_toEndOf="@+id/txt_taxi"
-            android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/txt_taxi"/>
-
+        
+        <TextView
+            android:id="@+id/txt_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="Find your route"
+            app:layout_constraintTop_toBottomOf="@+id/txt_d_handy"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

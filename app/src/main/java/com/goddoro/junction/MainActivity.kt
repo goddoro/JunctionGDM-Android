@@ -32,6 +32,7 @@ import android.os.Build
 import android.util.Base64
 import com.goddoro.junction.presentation.description.DescriptionActivity
 import com.goddoro.junction.presentation.indriving.InDrivingActivity
+import com.goddoro.junction.presentation.voice.VoiceActivity
 import com.kakao.sdk.common.util.KakaoCustomTabsClient
 import com.kakao.sdk.navi.NaviClient
 import com.kakao.sdk.navi.model.CoordType
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         initFragments()
         setupBottomNavigationView()
 
-        //startActivity(DescriptionActivity::class)
+        startActivity(VoiceActivity::class)
 
 
     }

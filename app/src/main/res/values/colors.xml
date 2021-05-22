@@ -10,4 +10,6 @@
 
     <color name="color_android">#00F2B2</color>
     <color name="background_1">#ededed</color>
+
+    <color name="main_color">#5600e8</color>
 </resources>
