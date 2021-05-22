@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.goddoro.junction.databinding.FragmentFeedBinding
 import com.goddoro.junction.extensions.disposedBy
 import com.goddoro.junction.presentation.feed.detail.DriverDetailActivity
+import com.goddoro.junction.util.component.BottomSheetDialog
 import com.kakao.sdk.common.util.KakaoCustomTabsClient
 import com.kakao.sdk.navi.NaviClient
 import com.kakao.sdk.navi.model.CoordType
@@ -76,14 +77,8 @@ class FeedFragment : Fragment() {
     private fun initView(){
 
 
-        val uri =
-            NaviClient.instance.navigateWebUrl(
-                Location("카카오 판교오피스", "127.108640", "37.402111"),
-                NaviOption(coordType = CoordType.WGS84)
-            )
+        BottomSheetDialog.show(requireActivity().supportFragmentManager)
 
-// CustomTabs로 길안내
-        KakaoCustomTabsClient.openWithDefault(context!!, uri)
 
     }
 

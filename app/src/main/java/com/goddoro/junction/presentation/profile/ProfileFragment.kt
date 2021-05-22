@@ -25,6 +25,15 @@ class ProfileFragment : Fragment()  {
 
         mBinding.vm = mViewModel
         mBinding.lifecycleOwner = viewLifecycleOwner
+
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+
+        mBinding.recyclerview.apply {
+            adapter = CommentBindingAdapter()
+        }
     }
 
     companion object {

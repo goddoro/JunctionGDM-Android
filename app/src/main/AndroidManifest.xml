@@ -26,14 +26,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.review.ReviewActivity"></activity>
+        <activity android:name=".presentation.intro.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".presentation.review.ReviewActivity" />
         <activity android:name=".presentation.feed.detail.DriverDetailActivity" />
         <activity android:name=".presentation.test.TestActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
