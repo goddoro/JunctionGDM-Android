@@ -2,9 +2,11 @@ package com.goddoro.junction.presentation.intro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
+import android.view.animation.OvershootInterpolator
 import com.goddoro.junction.MainActivity
 import com.goddoro.junction.databinding.ActivityIntroBinding
 import com.goddoro.junction.extensions.disposedBy
@@ -37,15 +39,29 @@ class IntroActivity : AppCompatActivity() {
 
         initView()
         appPreference.isLogin = true
+
+        window.sharedElementEnterTransition = TransitionSet().apply {
+            interpolator = OvershootInterpolator(0.7f)
+            ordering = TransitionSet.ORDERING_TOGETHER
+            addTransition(ChangeBounds().apply{
+                pathMotion = ArcMotion()
+            })
+            addTransition(ChangeTransform())
+            addTransition(ChangeClipBounds())
+            addTransition(ChangeImageTransform())
+        }
     }
 
     private fun initView() {
 
         //mBinding.animTaxi.playAnimation()
 
+
         rxSingleTimer(3000){
             startActivity(VoiceActivity::class)
             finish()
+
+           //mBinding.txtAnim.text = "zxcvdvzdfdlfkafadslkfjadslfkj"
         }.disposedBy(compositeDisposable)
 
 

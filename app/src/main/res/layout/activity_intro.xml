@@ -20,26 +20,46 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/anim_taxi"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:lottie_autoPlay="true"
             app:lottie_repeatMode="restart"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/chick"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="300dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:transitionName="Intro"
+            android:paddingTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/txt_d_handy"
+            android:src="@drawable/d_reverse"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/txt_d_handy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="D.\nHandy"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Handy"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="80dp"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/anim_taxi"/>
+            android:paddingTop="10dp"
+            android:textSize="60dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/img_logo"
+            app:layout_constraintStart_toEndOf="@+id/img_logo"/>
         
         <TextView
             android:id="@+id/txt_body"
@@ -49,8 +69,8 @@
             android:textSize="40dp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:text="Find your route"
+            android:gravity="center"
+            android:text="Guide for blind"
             app:layout_constraintTop_toBottomOf="@+id/txt_d_handy"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

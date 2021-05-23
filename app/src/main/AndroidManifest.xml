@@ -26,7 +26,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.end.EndActivity"></activity>
+        <activity android:name=".presentation.first.FirstActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presentation.end.EndActivity" />
         <activity android:name=".presentation.toTaxi.ToTaxiActivity" />
         <activity android:name=".presentation.beforeDriving.BeforeDrivingActivity" />
         <activity android:name=".presentation.voice.VoiceActivity" />
@@ -35,11 +43,7 @@
             android:name=".presentation.indriving.InDrivingActivity"
             android:theme="@style/Theme.Junction.Indriving" />
         <activity android:name=".presentation.intro.IntroActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".presentation.review.ReviewActivity" />
         <activity android:name=".presentation.feed.detail.DriverDetailActivity" />
