@@ -19,6 +19,7 @@ class InDrivingActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityInDrivingBinding
 
 
+    private val timeDisposable = CompositeDisposable()
     private val compositeDisposable = CompositeDisposable()
 
     private val mViewModel: InDrivingViewModel by viewModel()
@@ -34,6 +35,11 @@ class InDrivingActivity : AppCompatActivity() {
 
         setupRecyclerView()
         observeViewModel()
+
+
+        rxRepeatTimer(1000){
+            mViewModel.curTime.value = (mViewModel.curTime.value ?: 0) - 1
+        }.disposedBy(timeDisposable)
     }
 
     private fun observeViewModel() {
@@ -62,14 +68,21 @@ class InDrivingActivity : AppCompatActivity() {
 
                     if ( position == textList.size) {
 
+                        rxSingleTimer(3000){
+                            mBinding.txtSecond.text = 0.toString()
+                            timeDisposable.clear()
+                        }
+
                         rxSingleTimer(6000) {
-                            curTime.value = 0
+
                             startActivity(EndActivity::class)
                             finish()
                         }.disposedBy(compositeDisposable)
 
                     }
                     mBinding.recyclerview.smoothScrollToPosition(0)
+
+
                     curTime.value = second[position-1]
                 }
 

@@ -15,7 +15,7 @@ class InDrivingViewModel : ViewModel() {
     var textList : List<InDrivingText> = listOf()
 
 
-    val second: List<Int> = listOf(7, 3, 10, 5, 5, 5,3)
+    val second: List<Int> = listOf(2, 2, 2, 2, 2, 3,0)
 
     var position = 0
 
@@ -38,9 +38,6 @@ class InDrivingViewModel : ViewModel() {
             InDrivingText(5,"Wait","The car is approaching. Get off after 30 seconds", R.drawable.ic_wait_on,R.drawable.ic_wait_on,ObservableInt(0),R.color.colorRed)
         )
 
-        rxRepeatTimer(1000){
-            curTime.value = (curTime.value ?: 0) - 1
-        }
     }
 
 }

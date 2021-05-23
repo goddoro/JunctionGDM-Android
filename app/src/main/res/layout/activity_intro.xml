@@ -26,7 +26,7 @@
             app:lottie_autoPlay="true"
             app:lottie_repeatMode="restart"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/taxi"
+            app:lottie_rawRes="@raw/chick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -34,7 +34,7 @@
             android:id="@+id/txt_d_handy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="D:\nHandy"
+            android:text="D.\nHandy"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="80dp"

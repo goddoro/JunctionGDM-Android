@@ -8,14 +8,14 @@
     <string name="mapbox_access_token">pk.eyJ1IjoiZ29kZG9ybyIsImEiOiJja295bzZiOW8wMWVlMnZvMjVxcDF4M2NlIn0.-qbvlmX_ZEzZZCtbAJ5NUQ</string>
     <string name="kakao_app_key">2dd5d024f09a4cbe2b0dd13abc1222a2</string>
 
-    <string name="say_d_handy">Say <font fgcolor="#5600e8">D:Handy!</font>\nTell your destination</string>
+    <string name="say_d_handy">Say <font fgcolor="#5600e8">D.Handy!</font>\nTell your destination</string>
 
-    <string name="looking_for_taxi">Now <font fgcolor="#5600e8">D:Handy</font> is\nlooking for a taxi</string>
-    <string name="find_reserved_taxi">Find a reserved taxi\nusing <font fgcolor="#5600e8">D:Handy</font></string>
+    <string name="looking_for_taxi">Now <font fgcolor="#5600e8">D.Handy</font> is\nlooking for a taxi</string>
+    <string name="find_reserved_taxi">Find a reserved taxi\nusing <font fgcolor="#5600e8">D.Handy</font></string>
 
-    <string name="have_nice_day">Have a nice day <font fgcolor="#5600e8">D:</font></string>
+    <string name="have_nice_day">Have a nice day <font fgcolor="#5600e8">D.</font></string>
 
-    <string name="get_brief">Get a briefing on the\nroute using <font fgcolor="#5600e8">D:Handy</font></string>
+    <string name="get_brief">Get a briefing on the\nroute using <font fgcolor="#5600e8">D.Handy</font></string>
 
 
 </resources>
