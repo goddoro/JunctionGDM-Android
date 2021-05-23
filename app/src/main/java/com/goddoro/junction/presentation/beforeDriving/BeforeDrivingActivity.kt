@@ -5,21 +5,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.observe
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.goddoro.junction.databinding.ActivityBeforeDrivingBinding
+import com.goddoro.junction.extensions.disposedBy
+import com.goddoro.junction.extensions.rxRepeatTimer
+import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.toTaxi.ToTaxiActivity
+import io.reactivex.disposables.CompositeDisposable
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BeforeDrivingActivity : AppCompatActivity() {
 
+    var currentPage = 0
+
     private lateinit var mBinding : ActivityBeforeDrivingBinding
+
+    private val mViewModel : BeforeDrivingViewModel by viewModel()
+
+    private val compositeDisposable = CompositeDisposable()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityBeforeDrivingBinding.inflate(LayoutInflater.from(this))
 
         mBinding.lifecycleOwner = this
+        mBinding.vm = mViewModel
+
         setContentView(mBinding.root)
 
         setupViewPager()
+        observeViewModel()
 
     }
 
@@ -29,7 +45,20 @@ class BeforeDrivingActivity : AppCompatActivity() {
 
             adapter  = BeforeDrivingViewPager(supportFragmentManager,3)
         }
+
     }
+
+
+    private fun observeViewModel () {
+
+        mViewModel.apply {
+
+            curPage.observe(this@BeforeDrivingActivity){
+                mBinding.mViewPager.currentItem = it
+            }
+        }
+    }
+
 
 
 
@@ -53,6 +82,12 @@ class BeforeDrivingActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        compositeDisposable.clear()
     }
 
 }

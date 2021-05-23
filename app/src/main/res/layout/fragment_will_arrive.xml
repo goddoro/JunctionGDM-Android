@@ -23,7 +23,7 @@
             android:id="@+id/txt_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/find_reserved_taxi"
+            android:text="The taxi will arrive\nin 10 minutes."
             android:textSize="30dp"
             android:textColor="@color/black"
             android:layout_marginTop="100dp"

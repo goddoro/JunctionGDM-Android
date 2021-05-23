@@ -31,12 +31,49 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:recyclerview_in_driving_text_list="@{vm.toTaxiText}"
             tools:listitem="@layout/item_driving_text"
             app:layout_constraintTop_toBottomOf="@+id/txt_title"
+            app:layout_constraintBottom_toTopOf="@+id/img_number"
+            android:layout_marginBottom="20dp"
             />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_number"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:src="@color/main_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/second"
+            app:layout_constraintEnd_toEndOf="@+id/second"
+            android:textStyle="bold"
+            android:text="@{vm.curTime.toString()}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/second"
+            tools:text="7"
+            android:textSize="40dp"/>
+
+        <TextView
+            android:id="@+id/second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sec"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_number"
+            app:layout_constraintStart_toStartOf="@+id/img_number"
+            app:layout_constraintEnd_toEndOf="@+id/img_number"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

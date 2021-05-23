@@ -15,7 +15,7 @@ class InDrivingViewModel : ViewModel() {
     var textList : List<InDrivingText> = listOf()
 
 
-    val second: List<Int> = listOf(7, 7, 7, 10, 9, 8,3)
+    val second: List<Int> = listOf(7, 3, 10, 5, 5, 5,3)
 
     var position = 0
 

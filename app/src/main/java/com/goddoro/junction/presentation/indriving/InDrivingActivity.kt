@@ -8,6 +8,9 @@ import com.goddoro.junction.databinding.ActivityInDrivingBinding
 import com.goddoro.junction.extensions.disposedBy
 import com.goddoro.junction.extensions.rxRepeatTimer
 import com.goddoro.junction.extensions.rxSingleTimer
+import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.description.DescriptionActivity
+import com.goddoro.junction.presentation.end.EndActivity
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,7 +44,7 @@ class InDrivingActivity : AppCompatActivity() {
 
                 if ( (curTime.value ?: 0) <= 0) {
 
-                    mBinding.recyclerview.smoothScrollBy(0,mBinding.recyclerview.top)
+
 
                     if (position < textList.size) {
                         isRed.value = position == 2 || position == 5
@@ -50,6 +53,8 @@ class InDrivingActivity : AppCompatActivity() {
                             listOf(textList[position]) + (inDrivingTextList.value ?: listOf())
                         position++
 
+                        mBinding.recyclerview.smoothScrollToPosition(0)
+
 
 
                         for (i in 0 until position) {
@@ -57,6 +62,17 @@ class InDrivingActivity : AppCompatActivity() {
                             inDrivingTextList.value!![i].position.set(i)
                         }
                     }
+
+                    if ( position == textList.size) {
+
+                        rxSingleTimer(6000) {
+                            curTime.value = 0
+                            startActivity(EndActivity::class)
+                            finish()
+                        }.disposedBy(compositeDisposable)
+
+                    }
+                    mBinding.recyclerview.smoothScrollToPosition(0)
                     curTime.value = second[position-1]
                 }
 
@@ -71,5 +87,11 @@ class InDrivingActivity : AppCompatActivity() {
 
             adapter = InDrivingTextAdapter(this@InDrivingActivity)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        compositeDisposable.clear()
     }
 }

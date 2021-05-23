@@ -7,10 +7,13 @@ import android.view.View
 import android.view.View.VISIBLE
 import com.goddoro.junction.MainActivity
 import com.goddoro.junction.databinding.ActivityIntroBinding
+import com.goddoro.junction.extensions.disposedBy
 import com.goddoro.junction.extensions.rxSingleTimer
 import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.voice.VoiceActivity
 import com.goddoro.junction.util.AppPreference
 import com.goddoro.junction.util.setOnDebounceClickListener
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,6 +24,8 @@ class IntroActivity : AppCompatActivity() {
     private val mViewModel : IntroViewModel by viewModel()
 
     private val appPreference : AppPreference by inject()
+
+    private val compositeDisposable = CompositeDisposable()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,7 +43,18 @@ class IntroActivity : AppCompatActivity() {
 
         //mBinding.animTaxi.playAnimation()
 
-        startActivity(MainActivity::class)
+        rxSingleTimer(3000){
+            startActivity(VoiceActivity::class)
+            finish()
+        }.disposedBy(compositeDisposable)
 
+
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        compositeDisposable.clear()
     }
 }

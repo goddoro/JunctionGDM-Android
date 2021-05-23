@@ -2,6 +2,7 @@ package com.goddoro.junction.di
 
 import com.goddoro.junction.MainViewModel
 import com.goddoro.junction.presentation.apply.ApplyViewModel
+import com.goddoro.junction.presentation.beforeDriving.BeforeDrivingViewModel
 import com.goddoro.junction.presentation.feed.FeedViewModel
 import com.goddoro.junction.presentation.feed.detail.DriverDetailViewModel
 import com.goddoro.junction.presentation.indriving.InDrivingViewModel
@@ -34,5 +35,6 @@ val viewModelModule = module {
     viewModel { IntroViewModel() }
     viewModel { InDrivingViewModel()}
     viewModel { ToTaxiViewModel() }
+    viewModel { BeforeDrivingViewModel()}
 
 }

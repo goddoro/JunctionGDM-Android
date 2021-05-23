@@ -10,7 +10,7 @@
     <dimen name="txt_bold_title_size">25dp</dimen>
     <dimen name="txt_name_size">18dp</dimen>
 
-    <dimen name="body_margin_start">10dp</dimen>
-    <dimen name="title_size">18dp</dimen>
+    <dimen name="body_margin_start">20dp</dimen>
+    <dimen name="title_size">25dp</dimen>
 
 </resources>

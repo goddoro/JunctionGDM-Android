@@ -9,8 +9,13 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.goddoro.junction.R
 import com.goddoro.junction.databinding.ActivityToTaxiBinding
+import com.goddoro.junction.extensions.disposedBy
 import com.goddoro.junction.extensions.rxRepeatTimer
+import com.goddoro.junction.extensions.rxSingleTimer
+import com.goddoro.junction.extensions.startActivity
+import com.goddoro.junction.presentation.description.DescriptionActivity
 import com.goddoro.junction.presentation.indriving.InDrivingTextAdapter
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ToTaxiActivity : AppCompatActivity() {
@@ -18,6 +23,8 @@ class ToTaxiActivity : AppCompatActivity() {
     private lateinit var mBinding : ActivityToTaxiBinding
 
     private val mViewModel : ToTaxiViewModel by viewModel()
+
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,20 +51,46 @@ class ToTaxiActivity : AppCompatActivity() {
         mViewModel.apply {
 
 
-            rxRepeatTimer(1000) {
-                if (position < textList.size) {
+            rxRepeatTimer(10) {
 
-                    toTaxiText.value =
-                        listOf(textList[position]) + (toTaxiText.value ?: listOf())
-                    position++
+                if ( (curTime.value ?: 0) <= 0) {
 
-                    for ( i in 0 until position){
-                        Log.d("ZXCV",i.toString())
-                        toTaxiText.value!![i].position.set(i)
+                    mBinding.recyclerview.smoothScrollBy(0,mBinding.recyclerview.top)
+
+                    if (position < textList.size) {
+                        toTaxiText.value =
+                            listOf(textList[position]) + (toTaxiText.value ?: listOf())
+                        position++
+
+
+
+                        for (i in 0 until position) {
+                            Log.d("ZXCV", i.toString())
+                            toTaxiText.value!![i].position.set(i)
+                        }
                     }
+
+                    if ( position == textList.size) {
+
+                        rxSingleTimer(3000) {
+                            curTime.value = 0
+                            startActivity(DescriptionActivity::class)
+                            finish()
+                        }.disposedBy(compositeDisposable)
+
+                    }
+                    curTime.value = second[position-1]
                 }
-            }
+
+
+            }.disposedBy(compositeDisposable)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        compositeDisposable.clear()
     }
 
 

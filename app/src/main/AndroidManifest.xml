@@ -26,13 +26,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Junction"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.toTaxi.ToTaxiActivity"></activity>
+        <activity android:name=".presentation.end.EndActivity"></activity>
+        <activity android:name=".presentation.toTaxi.ToTaxiActivity" />
         <activity android:name=".presentation.beforeDriving.BeforeDrivingActivity" />
         <activity android:name=".presentation.voice.VoiceActivity" />
         <activity android:name=".presentation.description.DescriptionActivity" />
         <activity
             android:name=".presentation.indriving.InDrivingActivity"
-            android:theme="@style/Theme.Junction.Indriving"></activity>
+            android:theme="@style/Theme.Junction.Indriving" />
         <activity android:name=".presentation.intro.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

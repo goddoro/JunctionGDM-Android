@@ -18,13 +18,18 @@
         android:layout_height="match_parent"
         tools:context=".presentation.indriving.InDrivingActivity">
 
-        <com.goddoro.junction.util.component.Toolbar
-            android:id="@+id/toolbar"
-            app:toolbar_title="To Arrive"
-            android:backgroundTint="@color/background_1"
+
+        <TextView
+            android:id="@+id/txt_title"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_height"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="To Arrive"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -34,7 +39,8 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:recyclerview_in_driving_text_list="@{vm.inDrivingTextList}"
             tools:listitem="@layout/item_driving_text"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@id/img_number" />
 
