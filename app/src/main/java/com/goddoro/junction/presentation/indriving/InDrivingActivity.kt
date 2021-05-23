@@ -69,8 +69,8 @@ class InDrivingActivity : AppCompatActivity() {
                     if ( position == textList.size) {
 
                         rxSingleTimer(3000){
-                            mBinding.txtSecond.text = 0.toString()
                             timeDisposable.clear()
+                            mBinding.txtSecond.text = 0.toString()
                         }
 
                         rxSingleTimer(6000) {
