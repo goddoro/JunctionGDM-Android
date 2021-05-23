@@ -34,11 +34,21 @@ class BriefFragment : Fragment(){
                 textToSpeech.language =(Locale.ENGLISH)
 
             }
-            textToSpeech.speak("Lets start driving now." +
+            textToSpeech.speak(
                     "It will take 13 km to Seoul Station, approximately 35 minutes" +
-                    "The estimated fare is KRW 17,000.",
+                    "The estimated fare is KRW 17,000." + "Lets start driving now." ,
                 TextToSpeech.QUEUE_FLUSH,null,null)
 
+        }
+
+        mBinding.txtBody.apply {
+
+            text = ""
+            setCharacterDelay(65)
+
+            animateText(
+                    "It will take 13 km to Seoul Station, approximately 35 minutes.\n \n \n" +
+                    "The estimated fare is KRW 17,000.\n \n \n" + "Let's start driving now.")
         }
     }
 

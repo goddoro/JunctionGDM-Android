@@ -52,7 +52,7 @@ class FindTaxiFragment : Fragment(){
             requireActivity().finish()
         }
 
-        rxSingleTimer(4000){
+        rxSingleTimer(5000){
             textToSpeech = TextToSpeech(context!!) {
                 if ( it != TextToSpeech.ERROR) {
                     textToSpeech.language =(Locale.ENGLISH)

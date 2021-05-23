@@ -103,6 +103,7 @@ class InDrivingTextAdapter ( val context : Context): RecyclerView.Adapter<InDriv
 
             }
 
+
         }
     }
 

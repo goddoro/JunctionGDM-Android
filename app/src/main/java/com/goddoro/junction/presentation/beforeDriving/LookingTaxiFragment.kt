@@ -49,7 +49,7 @@ class LookingTaxiFragment : Fragment(){
 
         }
 
-        rxSingleTimer(4000){
+        rxSingleTimer(5000){
             mViewModel.curPage.value = 1
         }.disposedBy(compositeDisposable)
     }

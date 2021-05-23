@@ -57,6 +57,7 @@
             android:layout_marginBottom="30dp"
             android:padding="10dp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Another Reserved"
             android:background="@drawable/cardview_purple_background"
             app:layout_constraintBottom_toBottomOf="parent"

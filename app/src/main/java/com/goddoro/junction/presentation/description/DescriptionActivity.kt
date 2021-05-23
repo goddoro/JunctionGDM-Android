@@ -49,7 +49,7 @@ class DescriptionActivity : AppCompatActivity() {
             mBinding.mViewPager.currentItem = currentPage + 1
         }.disposedBy(compositeDisposable)
 
-        rxSingleTimer(15000){
+        rxSingleTimer(18000){
             startActivity(InDrivingActivity::class)
             finish()
         }

@@ -53,9 +53,6 @@ class InDrivingActivity : AppCompatActivity() {
                             listOf(textList[position]) + (inDrivingTextList.value ?: listOf())
                         position++
 
-                        mBinding.recyclerview.smoothScrollToPosition(0)
-
-
 
                         for (i in 0 until position) {
                             Log.d("ZXCV", i.toString())

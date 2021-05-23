@@ -43,7 +43,7 @@ class WillArriveFragment : Fragment() {
         }
 
 
-        rxSingleTimer(4000){
+        rxSingleTimer(5000){
 
 
             mViewModel.curPage.value = 2
