@@ -48,3 +48,7 @@ MVVM using Koin, AAC ViewModel, Data Binding
 
 [이동호] ,[이종민], [김혜연], [장성원], [김태현]
 
+## [ goddoro의 후기가 궁금하다면 ]
+
+https://goddoro.medium.com/review-junctionx-seoul-2021-%ED%9B%84%EA%B8%B0-9ad5ea905cfb
+
